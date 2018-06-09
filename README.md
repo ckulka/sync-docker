@@ -70,7 +70,9 @@ Do not create directories at the root of `mounted_folders` from the Sync webui s
 * `8888` - Webui
 * `55555` - Listening port for Sync traffic
 
-## Building the image
+## Build
+
+### Building the image
 
 The image uses three build arguments:
 
@@ -84,4 +86,31 @@ docker build -t resilio/sync \
   --build-arg ARCH=x64 \
   --build-arg VERSION=stable \
   .
+```
+
+### Building the multi-arch manifest
+
+Create the multi-arch manifest by referencing the image variants:
+
+```bash
+docker manifest create resilio/sync:latest \
+  resilio/sync:release-2.5.13-amd64 \
+  resilio/sync:release-2.5.13-arm32v7
+
+docker manifest push --purge resilio/sync:latest
+
+docker manifest create resilio/sync:release-2.5.13 \
+  resilio/sync:release-2.5.13-amd64 \
+  resilio/sync:release-2.5.13-arm32v7
+
+docker manifest push --purge resilio/sync:release-2.5.13
+
+```
+
+As long as the [docker manifest commands are experimental](https://docs.docker.com/edge/engine/reference/commandline/manifest/), enable the experimental mode for the Docker Cli in `~/.docker/config.json`:
+
+```json
+{
+    "experimental": "enabled"
+}
 ```

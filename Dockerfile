@@ -1,13 +1,13 @@
-# Resilio Sync
-#
-# VERSION               0.1
-#
+ARG FROM_ARCH=amd64
+FROM ${FROM_ARCH}/ubuntu:18.04
 
-FROM ubuntu
-MAINTAINER Resilio Inc. <support@resilio.com>
-LABEL com.resilio.version="2.5.13"
+ARG ARCH=x64
+ARG VERSION=2.5.13
 
-ADD https://download-cdn.resilio.com/2.5.13/linux-x64/resilio-sync_x64.tar.gz /tmp/sync.tgz
+LABEL Resilio Inc. <support@resilio.com>
+LABEL com.resilio.version="${VERSION}"
+
+ADD https://download-cdn.resilio.com/${VERSION}/linux-${ARCH}/resilio-sync_${ARCH}.tar.gz /tmp/sync.tgz
 RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
 
 COPY sync.conf.default /etc/

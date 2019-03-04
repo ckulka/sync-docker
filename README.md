@@ -125,3 +125,13 @@ As long as the [docker manifest commands are experimental](https://docs.docker.c
     "experimental": "enabled"
 }
 ```
+
+## Miscellaneous
+
+* Additional info and various guides can be found in our [help center](https://help.resilio.com)
+* If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563) or visit our forum at [https://forum.resilio.com](https://forum.resilio.com)
+* Read our [official blog](https://www.resilio.com/blog/)
+* Follow us on [twitter](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.resilio.com%2Findividuals%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=ResilioInc&tw_p=followbutton)!
+* Discover our [other products](https://www.resilio.com/sync-vs-connect/)
+* Learn [legal information](https://www.resilio.com/legal/privacy/)
+* If you found some security vulnerability in our product - please follow [this article](https://help.resilio.com/hc/en-us/articles/360000294599-How-to-Report-Security-Vulnerabilities-to-Resilio-Inc-).

@@ -2,7 +2,7 @@ ARG FROM_ARCH=amd64
 FROM ${FROM_ARCH}/ubuntu:18.04
 
 ARG ARCH=x64
-ARG VERSION=2.5.13
+ARG VERSION=2.6.3
 
 LABEL Resilio Inc. <support@resilio.com>
 LABEL com.resilio.version="${VERSION}"

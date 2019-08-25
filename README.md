@@ -34,6 +34,11 @@ docker run -d --name Sync \
            resilio/sync
 ```
 
+Note: you can use our official Docker image `resilio/sync` hosted on hub.docker.com or build image locally:
+```
+docker build -t resilio/sync .
+```
+
 Be sure to always run docker container with `--restart` parameter to allow Docker daemon to handle Sync container (launch at startup as well as restart it in case of failure).
 
 Go to `http://localhost:$WEBUI_PORT` in a web browser to access the webui.
@@ -79,59 +84,15 @@ docker run -d --name Sync \
            resilio/sync
 ```
 
-Do not create directories at the root of `mounted_folders` from the Sync webui since this new folder will not be mounted on the host.
-
-## Build
-
-### Building the image
-
-The image uses three build arguments:
-
-* `FROM_ARCH` is the platform of the [base image](https://hub.docker.com/_/ubuntu/), e.g. [`amd64`](https://hub.docker.com/r/amd64/ubuntu/) or [`arm32v7`](https://hub.docker.com/r/arm32v7/ubuntu/)
-* `ARCH` is the target platform as provided by Resilio, e.g. `x64` or `armhf`
-* `VERSION` is the version of Resilio Sync, e.g. `2.5.13` or `stable`
-
-```bash
-docker build -t resilio/sync \
-  --build-arg FROM_ARCH=amd64 \
-  --build-arg ARCH=x64 \
-  --build-arg VERSION=stable \
-  .
-```
-
-### Building the multi-arch manifest
-
-Create the multi-arch manifest by referencing the image variants:
-
-```bash
-docker manifest create resilio/sync:latest \
-  resilio/sync:release-2.5.13-amd64 \
-  resilio/sync:release-2.5.13-arm32v7
-
-docker manifest push --purge resilio/sync:latest
-
-docker manifest create resilio/sync:release-2.5.13 \
-  resilio/sync:release-2.5.13-amd64 \
-  resilio/sync:release-2.5.13-arm32v7
-
-docker manifest push --purge resilio/sync:release-2.5.13
-
-```
-
-As long as the [docker manifest commands are experimental](https://docs.docker.com/edge/engine/reference/commandline/manifest/), enable the experimental mode for the Docker Cli in `~/.docker/config.json`:
-
-```json
-{
-    "experimental": "enabled"
-}
-```
+Do not create directories at the root of `/mnt/mounted_folders` from the Sync webui since they will not be mounted to the host.
 
 ## Miscellaneous
 
-* Additional info and various guides can be found in our [help center](https://help.resilio.com)
-* If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563) or visit our forum at [https://forum.resilio.com](https://forum.resilio.com)
-* Read our [official blog](https://www.resilio.com/blog/)
-* Follow us on [twitter](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.resilio.com%2Findividuals%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=ResilioInc&tw_p=followbutton)!
-* Discover our [other products](https://www.resilio.com/sync-vs-connect/)
-* Learn [legal information](https://www.resilio.com/legal/privacy/)
-* If you found some security vulnerability in our product - please follow [this article](https://help.resilio.com/hc/en-us/articles/360000294599-How-to-Report-Security-Vulnerabilities-to-Resilio-Inc-).
+- Additional info and various guides can be found in our [help center](https://help.resilio.com)
+- If you have any questions left, please contact us via [support page](https://help.resilio.com/hc/en-us/requests/new?ticket_form_id=91563) or visit our forum at [https://forum.resilio.com](https://forum.resilio.com)
+- Read our [official blog](https://www.resilio.com/blog/)
+- Docker [hub](https://hub.docker.com/r/resilio/sync/)
+- Follow us on [twitter](https://twitter.com/intent/follow?original_referer=https%3A%2F%2Fwww.resilio.com%2Findividuals%2F&ref_src=twsrc%5Etfw&region=follow_link&screen_name=ResilioInc&tw_p=followbutton)!
+- Discover our [other products](https://www.resilio.com/sync-vs-connect/)
+- Learn [legal information](https://www.resilio.com/legal/privacy/)
+- If you found some security vulnerability in our product - please follow [this article](https://help.resilio.com/hc/en-us/articles/360000294599-How-to-Report-Security-Vulnerabilities-to-Resilio-Inc-).

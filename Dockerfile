@@ -1,15 +1,21 @@
 ARG FROM_ARCH=amd64
+
+FROM alpine AS builder
+
+ARG VERSION=2.6.3
+ARG ARCH=x64
+ADD https://download-cdn.resilio.com/${VERSION}/linux-${ARCH}/resilio-sync_${ARCH}.tar.gz resilio-sync.tar.gz
+RUN tar zxvf resilio-sync.tar.gz
+
+
 FROM ${FROM_ARCH}/ubuntu:18.04
 
-ARG ARCH=x64
 ARG VERSION=2.6.3
 
 LABEL Resilio Inc. <support@resilio.com>
 LABEL com.resilio.version="${VERSION}"
 
-ADD https://download-cdn.resilio.com/${VERSION}/linux-${ARCH}/resilio-sync_${ARCH}.tar.gz /tmp/sync.tgz
-RUN tar -xf /tmp/sync.tgz -C /usr/bin rslsync && rm -f /tmp/sync.tgz
-
+COPY --from=builder rslsync /usr/bin
 COPY sync.conf.default /etc/
 COPY run_sync /usr/bin/
 

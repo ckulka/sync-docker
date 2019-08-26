@@ -6,17 +6,41 @@
 
 ## Supported tags and respective Dockerfile links
 
-* [`release-2.5.13`, `latest` (Dockerfile)](https://github.com/bt-sync/sync-docker/blob/2.5.13/Dockerfile)
-  * `release-2.5.13-amd64`
-  * `release-2.5.13-arm32v7`
+### Simple Tags
+
+The following tags are only available for `amd64` platforms.
+
+- [`release-2.6.2`](https://github.com/bt-sync/sync-docker/blob/2.6.2/Dockerfile)
+- [`release-2.6.1`](https://github.com/bt-sync/sync-docker/blob/2.6.1/Dockerfile)
+- [`release-2.6.0`](https://github.com/bt-sync/sync-docker/blob/2.6.0/Dockerfile)
+- [`release-2.5.13`](https://github.com/bt-sync/sync-docker/blob/2.5.13/Dockerfile)
+- [`release-2.5.12`](https://github.com/bt-sync/sync-docker/blob/2.5.12/Dockerfile)
+- [`release-2.5.11`](https://github.com/bt-sync/sync-docker/blob/2.5.11/Dockerfile)
+- [`release-2.5.10`](https://github.com/bt-sync/sync-docker/blob/2.5.10/Dockerfile)
+- [`release-2.5.9`](https://github.com/bt-sync/sync-docker/blob/2.5.9/Dockerfile)
+- [`release-2.5.8`](https://github.com/bt-sync/sync-docker/blob/2.5.8/Dockerfile)
+- [`release-2.5.6`](https://github.com/bt-sync/sync-docker/blob/2.5.6/Dockerfile)
+- [`release-2.4.5`](https://github.com/bt-sync/sync-docker/blob/2.1.5/Dockerfile)
+- [`release-2.4.4`](https://github.com/bt-sync/sync-docker/blob/2.1.4/Dockerfile)
+- [`release-2.4.2`](https://github.com/bt-sync/sync-docker/blob/2.4.2/Dockerfile)
+- [`release-2.4.1`](https://github.com/bt-sync/sync-docker/blob/2.4.1/Dockerfile)
+- [`release-2.1.0`](https://github.com/bt-sync/sync-docker/blob/2.1.0/Dockerfile)
+
+### Shared Tags
+
+The following tags are support multiple architectures, e.g. `amd64` and `arm32v7`.
+
+- `release-2.6.3`
+  - [`release-2.6.3-amd64`](https://github.com/bt-sync/sync-docker/blob/2.6.3/Dockerfile)
+  - [`release-2.6.3-arm32v7`](https://github.com/bt-sync/sync-docker/blob/2.6.3/Dockerfile)
 
 ## Quick reference
 
-* **Where to get help:**
+- **Where to get help:**
   [Help Center](https://help.getsync.com), [Support Page](https://help.getsync.com/hc/en-us/requests/new?ticket_form_id=91563), <https://forum.resilio.com>
-* **Where to file issues:** [Support Page](https://help.getsync.com/hc/en-us/requests/new?ticket_form_id=91563)
-* **Maintained by:** [the Resilio Sync Docker Maintainers](https://github.com/bt-sync/sync-docker)
-* **Supported architectures:** [`amd64`](https://hub.docker.com/r/amd64/ubuntu/), [`arm32v7`](https://hub.docker.com/r/arm32v7/ubuntu/)
+- **Where to file issues:** [Support Page](https://help.getsync.com/hc/en-us/requests/new?ticket_form_id=91563)
+- **Maintained by:** [the Resilio Sync Docker Maintainers](https://github.com/bt-sync/sync-docker)
+- **Supported architectures:** [`amd64`](https://hub.docker.com/r/amd64/ubuntu/), [`arm32v7`](https://hub.docker.com/r/arm32v7/ubuntu/)
 
 ## Usage
 
